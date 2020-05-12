@@ -1,0 +1,26 @@
+[
+  {
+    "id" : 1,
+    "name" : "Nguyễn Minh Thắng",
+    "age" : 18,
+    "address" : "8 Ton that thuyet",
+    "gender" : "male",
+    "point" : 10
+  },
+  {
+    "id" : 2,
+    "name" : "Nguyễn Thanh Tuấn",
+    "age" : 18,
+    "address" : "8 Ton that thuyet",
+    "gender" : "male",
+    "point" : 10
+  },
+  {
+    "id" : 3,
+    "name" : "Nguyễn Tiến Đạt",
+    "age" : 18,
+    "address" : "8 Ton that thuyet",
+    "gender" : "male",
+    "point" : 10
+  }
+]
