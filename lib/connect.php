@@ -1,33 +1,48 @@
 <?php
-function connect($db)
-{
-// lay du lieu tu mysql dua vao php
-    $host   = "localhost";
+//ket noi db
+function connect($db){
+    $host = "localhost";
     $userDB = "root";
-    $passDB = "";
+    $passDB = "";//xampp thi de "", mmam thi de "root"
     $dbName = $db;
-    $conn   = new mysqli($host, $userDB, $passDB, $dbName); // không cần truyền port
-// kiểm tra kết nối
-    if ($conn->connect_error) {
-        die("Connect fail"); // die là hàm dùng để dừng luồng đang chạy php là ngôn ngữ chỉ có 1 luồng chạy
+    $conn = new mysqli($host, $userDB, $passDB, $dbName);//khong can port
+
+    if($conn->connect_error){
+        die("connect fail"); // die la hàm dùng luồng đang chạy, php là ngôn ngữ đơn luồng (single thread), ở dây kết nối lỗi gặp die ko chạy nữa
     }
     return $conn;
 }
-function getResult($db,$query){
-    $conn = connect($db);
-    $sql_text = $query;
+
+//function getAll($table){
+//    $conn = connect();
+//    //nếu connect thì code chạy tiếp bên dưới
+//    //echo "connected successfully";
+//    //Câu lệnh sql
+//    $sql_text = "SELECT * FROM ".$table;
+//
+//    //gan bien result
+//    $result = $conn -> query($sql_text);
+//    //var_dump($result);
+//    $data = [];
+//    if($result -> num_rows > 0){
+//        while ($row = $result -> fetch_assoc()){
+//            $data[] = $row;
+//            //mỗi row mà 1 mảng có các key là các column
+//        }
+//        //var_dump($students);
+//    }
+//    //students là mang chứa các sinh viên
+//    return $data;
+//}
+function toArray($result){
     $data = [];
-    $rs = $conn->query($sql_text); // chay cau querry lấy về biến rs
-//var_dump($rs);
-// kiểm tra số lượng hàng nhận được là num_rows
-    if($rs->num_rows > 0){ //-> dùng để truy xuất đến thuộc tính thay cho dấu. ngôn ngữ khác
-        while($row = $rs->fetch_assoc()){ // phân giải từng hàng row là hàng lấy được
-            $data[] = $row; // tạo mảng để bỏ vào từng phần từ lấy được mỗi row sẽ là 1 mảng có các key và value
+    if($result -> num_rows > 0){
+        while ($row = $result -> fetch_assoc()){
+            $data[] = $row;
+            //mỗi row mà 1 mảng có các key là các column
         }
-//    var_dump($data);
+        //var_dump($students);
     }
+    //students là mang chứa các sinh viên
     return $data;
 }
-
-// ra ngoài này có nghĩa kết nối thành công
-//echo "Connect Successful";

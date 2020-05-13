@@ -1,7 +1,4 @@
-<?php
-require_once("../lib/connect.php");
-$users = getResult("t1907m","SELECT * FROM user");
-?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -61,32 +58,6 @@ $users = getResult("t1907m","SELECT * FROM user");
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-    </div>
-    <div class="list">
-        <div class="title">
-            <h2>Danh Sách Người dùng</h2>
-        </div>
-        <table class="table table-hover">
-            <thead>
-            <tr class="table-primary">
-                <th scope="col">#</th>
-                <th scope="col">UserName</th>
-                <th scope="col">Email</th>
-                <th scope="col">Password</th>
-            </tr>
-            </thead>
-            <tbody>
-            <!--muốn viết riêng ra thì ?php tiếp-->
-            <?php foreach ($users as $u) : // gọi thuộc tính của đối tượng dùng dâu -> ?>
-            <tr>
-                <td><?php echo $u["id"]?></td>
-                <td><?php echo $u["name"] ?> </td>
-                <td><?php echo $u["email"] ?> </td>
-                <td><?php echo $u["password"] ?></td>
-            </tr>
-            <?php endforeach;?><!-- // để end foreach không lẫn với dấu if else-->
-            </tbody>
-        </table>
     </div>
 </div>
 

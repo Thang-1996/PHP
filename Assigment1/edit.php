@@ -1,3 +1,6 @@
+<?php
+require_once "User.php"
+    ;?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -38,24 +41,30 @@
         </nav>
     </div>
     <div class="title">
-        <h1>Đăng Ký</h1>
+        <h1>Edit</h1>
     </div>
     <div class="content">
-        <form action="post_register.php" method="POST">
+        <form action="post_edit.php" method="POST">
+            <?php
+            $id = $_GET["id"];
+            $user = new \Assigment1\User();
+            $user = $user->find($id);
+            ?>
+            <input type="hidden" name="id" value="<?php echo $user->id;?>"/>
             <div class="form-group">
                 <label for="exampleInputName">Name</label>
-                <input type="text" name="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp">
+                <input type="text" name="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp" value="<?php echo $user->name;?>">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
-                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->email;?>">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" name="password" class="form-control" id="exampleInputPassword1">
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>
 </div>
