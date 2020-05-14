@@ -1,6 +1,4 @@
-<?php
-require_once "User.php"
-    ;?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -44,25 +42,18 @@ require_once "User.php"
         <h1>Edit</h1>
     </div>
     <div class="content">
-        <form action="post_edit.php" method="POST">
+        <form action="?route=post_category_edit" method="POST">
             <?php
-            $id = $_GET["id"];
-            $user = new \Assigment1\User();
-            $user = $user->find($id);
+            $category_id = $_GET["category_id"];
+            $category = new \Model\Category();
+            $category = $category->find($category_id);
+//            $current = $_SESSION['user'];
             ?>
-            <input type="hidden" name="id" value="<?php echo $user->id;?>"/>
+<!--            <h2>Đang edit dưới tên: --><?php //echo $current['name']; ?><!--</h2>-->
+            <input type="hidden" name="category_id" value="<?php echo $category->category_id;?>"/>
             <div class="form-group">
-                <label for="exampleInputName">Name</label>
-                <input type="text" name="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp" value="<?php echo $user->name;?>">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $user->email;?>">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                <label for="exampleInputName">Category Name</label>
+                <input type="text" name="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp" value="<?php echo $category->name;?>">
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
