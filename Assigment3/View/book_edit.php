@@ -39,7 +39,7 @@
             <input type="hidden" name="id" value="<?php echo $book->book_id;?>"/>
             <div class="form-group">
                 <label for="exampleInputName">Book Name</label>
-                <input type="text" name="name" class="form-control" value="<?php echo $book->name;?>">
+                <input type="text" name="book_name" class="form-control" value="<?php echo $book->book_name;?>">
             </div>
             <div class="form-group">
                 <label for="exampleInputName">Author</label>

@@ -29,8 +29,8 @@
     <div class="content">
         <form action="?route=post_book_create" method="POST">
             <div class="form-group">
-                <label for="exampleInputName">Name</label>
-                <input type="text" name="name" class="form-control">
+                <label for="exampleInputName">Book Name</label>
+                <input type="text" name="book_name" class="form-control">
             </div>
             <div class="form-group">
                 <label for="exampleInputName">Author</label>

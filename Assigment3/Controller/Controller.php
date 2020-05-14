@@ -55,12 +55,12 @@ class Controller
     public function post_book_edit()
     {
         $id = $_POST['book_id'];
-        $name = $_POST['name'];
+        $book_name = $_POST['book_name'];
         $author = $_POST['author'];
         $qty = $_POST['qty'];
         $category_id = $_POST['category_id'];
-//        $category_name = $_POST['category_name'];
-        $book = new Book($id,$name,$author,$qty,$category_id);
+//        $category_name = $_POST['name'];
+        $book = new Book($id,$book_name,$author,$qty,$category_id,null);
         $book->save();
         header("Location: ?route=books&category_id=".$category_id);
     }
@@ -73,12 +73,12 @@ class Controller
     }
 
     public function post_book_create(){
-        $name = $_POST['name'];
+        $book_name = $_POST['book_name'];
         $author = $_POST['author'];
         $qty = $_POST['qty'];
         $category_id = $_POST['category_id'];
 //        $category_name = $_POST['category_name'];
-        $book = new Book(null,$name,$author,$qty,$category_id);
+        $book = new Book(null,$book_name,$author,$qty,$category_id);
         $book->save();
         header("Location: ?route=books&category_id=".$category_id); // dieu huong tro lai trang danh sach
     }
