@@ -44,6 +44,7 @@
             <td><?php echo $u["author"] ?> </td>
             <td><?php echo $u["qty"] ?></td>
             <td><?php echo $u["category_id"] ?></td>
+<!--            <td>--><?php //echo $u["category_name"] ?><!--</td>-->
             <td><a href="?route=post_book_delete&book_id=<?php echo $u["book_id"]; ?>"</a>Delete</td>
             <td><a href="?route=view_book_edit&book_id=<?php echo $u["book_id"]; ?>"</a>Update</td>
         </tr>

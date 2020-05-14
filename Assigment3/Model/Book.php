@@ -9,7 +9,7 @@ class Book extends Model{
     public $category_id;
 //    public $category_name;
     protected $table = "book";
-    protected $table2 = "category";
+//    protected $table2 = "category";
     public function __construct($book_id=null,$name=null,$author=null,$qty=null,$category_id=null)
     {
      $this->book_id = $book_id;
@@ -17,12 +17,14 @@ class Book extends Model{
      $this->author = $author;
      $this->qty = $qty;
      $this->category_id = $category_id;
+//     $this->category_name=$category_name;
 
     }
     public function getBook($category_id)
     {
         $sql = "SELECT * FROM " . $this->table . " WHERE category_id= " . $category_id;
-//        $sql =  "SELECT book.name,book.author,book.qty,category.name as category_name from category left join book on category.category_id = book.category_id where category.category_id = ".$category_id;
+//        $sql2 =  "SELECT category.name as category_name from category left join book on category.category_id = book.category_id WHERE category_id = ".$category_id;
+//        $this->category_name = $this->getConn()->query($sql2);
         $rs = $this->getConn()->query($sql);
         return $this->toArray($rs);
     }

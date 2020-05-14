@@ -59,6 +59,7 @@ class Controller
         $author = $_POST['author'];
         $qty = $_POST['qty'];
         $category_id = $_POST['category_id'];
+//        $category_name = $_POST['category_name'];
         $book = new Book($id,$name,$author,$qty,$category_id);
         $book->save();
         header("Location: ?route=books&category_id=".$category_id);
@@ -76,6 +77,7 @@ class Controller
         $author = $_POST['author'];
         $qty = $_POST['qty'];
         $category_id = $_POST['category_id'];
+//        $category_name = $_POST['category_name'];
         $book = new Book(null,$name,$author,$qty,$category_id);
         $book->save();
         header("Location: ?route=books&category_id=".$category_id); // dieu huong tro lai trang danh sach
